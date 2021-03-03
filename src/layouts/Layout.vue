@@ -63,7 +63,7 @@
         </q-item>
       </q-list>
 
-      <!-- TODO: Navigation -->
+      <navigation type="application" />
 
       <div
         v-if="!mini"
@@ -88,7 +88,7 @@
     </q-page-container>
 
     <q-footer class="transparent print-hide" bordered>
-      <!-- TODO: Footer -->
+      <Footer />
     </q-footer>
   </q-layout>
 </template>
@@ -98,11 +98,16 @@ import { defineComponent, ref } from 'vue';
 import { version, productName } from '../../package.json';
 import { useQuasar } from 'quasar';
 import { AppFullscreen } from 'quasar';
+import Navigation from '../components/Ui/Navigation.vue';
+import Footer from '../components/Ui/Footer.vue';
 
 export default defineComponent({
   name: 'MainLayout',
 
-  components: {},
+  components: {
+    Navigation,
+    Footer,
+  },
 
   setup() {
     const $q = useQuasar();

@@ -1,56 +1,83 @@
 <template>
-  <div>
-    <div v-for="(route, index) in routes" :key="index" :route="route">
-      <q-list v-if="route.meta && route.meta.app">
-        <q-item
-          v-for="(child, indexChild) in route.children"
-          :key="indexChild"
-          :child="child"
-          clickable
-          @click="push(child)"
-        >
-          <q-item-section avatar>
-            <q-avatar
-              :icon="child?.meta?.icon"
-              :text-color="$route.name === child.name ? 'primary' : 'white'"
-            >
-              <q-tooltip :offset="[0, 0]">
-                {{ child?.meta?.title }}
-              </q-tooltip>
-            </q-avatar>
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>{{ child?.meta?.title }}</q-item-label>
-            <q-item-label
-              v-if="child?.meta?.description"
-              caption
-              class="text-grey"
-              >{{ child?.meta?.description }}</q-item-label
-            >
-          </q-item-section>
-        </q-item>
-      </q-list>
-    </div>
+  <div v-if="type === 'application'">
+    <q-list>
+      <q-item
+        v-for="(route, index) in routes"
+        :key="index"
+        :route="route"
+        clickable
+        @click="push(route)"
+      >
+        <q-item-section avatar>
+          <q-avatar
+            :icon="route?.meta?.icon"
+            :text-color="isRouteId === route.name ? 'primary' : 'white'"
+          >
+            <q-tooltip :offset="[0, 0]">
+              {{ $t(route?.meta?.title) }}
+            </q-tooltip>
+          </q-avatar>
+        </q-item-section>
+        <q-item-section>
+          <q-item-label>{{ $t(route?.meta?.title) }}</q-item-label>
+          <q-item-label
+            v-if="route?.meta?.description"
+            caption
+            class="text-grey"
+          >
+            {{ $t(route?.meta?.description) }}
+          </q-item-label>
+        </q-item-section>
+      </q-item>
+    </q-list>
+  </div>
+
+  <div v-if="type === 'footer'">
+    <ul class="float-right q-ma-sm">
+      <li
+        v-for="(route, index) in routes"
+        :key="index"
+        :route="route"
+        class="float-right q-ma-sm"
+      >
+        <router-link v-if="route.meta.title" :to="route.path" replace>
+          {{ $t(route.meta.title) }}
+        </router-link>
+      </li>
+    </ul>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent} from 'vue';
-import { useRouter, RouteRecordRaw} from 'vue-router';
+<script>
+import { defineComponent } from 'vue';
+import { useRouter, useRoute } from 'vue-router';
 
 export default defineComponent({
-  name: 'navigation',
-  setup() {
-    const router = useRouter()
-    const routes = router.getRoutes();
-    
-    function push( child: RouteRecordRaw) {  
-        console.log('Navigation Push: ', child);
-        void router.push(child);
-    }  
-    return {
-      routes,
-      push
+  name: 'Navigation',
+
+  props: {
+    type: {
+      type: String,
+      default: 'application',
+    },
+  },
+
+  setup(props) {
+    const router = useRouter();
+    const route = useRoute();
+    const routes = router.getRoutes().filter(function (element) {
+      return element?.meta?.type === props.type;
+    });
+
+    function push(child) {
+      void router.push(child);
     }
-  }
+
+    return {
+      isRouteId: route.name,
+      routes,
+      push,
+    };
+  },
 });
+</script>
