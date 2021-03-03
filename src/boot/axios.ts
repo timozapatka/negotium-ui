@@ -18,7 +18,10 @@ export default boot(({ app }) => {
     return config
   }, (error) => {
     LoadingBar.stop()
-    Notify.create(error)
+    Notify.create({
+      type: 'error',
+      message: error as string
+    })
     return Promise.reject(error)
   });
 
@@ -27,7 +30,10 @@ export default boot(({ app }) => {
         return response
     }, (error) => {
         LoadingBar.stop()
-        Notify.create(error)
+        Notify.create({
+          type: 'error',
+          message: error as string
+        })
         return Promise.reject(error)
     })
 
