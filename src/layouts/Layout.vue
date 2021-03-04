@@ -54,9 +54,12 @@
     </q-header>
 
     <q-drawer v-model="menu" :mini="mini" elevated dark class="print-hide">
-      <q-list class="menu-list text-right" elevated>
+      <q-list class="menu-list" elevated>
         <q-item clickable class="gt-sm" @click="mini = !mini">
-          <q-item-section avatar>
+          <q-item-section
+            avatar
+            :class="mini ? 'absolute-center' : 'absolute-right'"
+          >
             <q-icon v-if="mini" name="menu" />
             <q-icon v-if="!mini" name="clear" />
           </q-item-section>
@@ -96,7 +99,6 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import { version, productName } from '../../package.json';
-import { useQuasar } from 'quasar';
 import { AppFullscreen } from 'quasar';
 import Navigation from '../components/Ui/Navigation.vue';
 import Footer from '../components/Ui/Footer.vue';
@@ -110,7 +112,6 @@ export default defineComponent({
   },
 
   setup() {
-    const $q = useQuasar();
     const menu = ref(true);
     const mini = ref(true);
     const sidebar = ref(false);
@@ -126,7 +127,6 @@ export default defineComponent({
       mini,
       menu,
       sidebar,
-      dark: $q.dark.isActive,
       fullscreen: AppFullscreen.isActive,
       toggleFullscreen,
     };
