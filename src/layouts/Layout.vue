@@ -29,8 +29,6 @@
 
         <q-space />
 
-        <!-- TODO: User Component -->
-
         <q-btn
           flat
           dense
@@ -83,7 +81,7 @@
       overlay
       class="print-hide"
     >
-      <!-- TODO: Sidebar -->
+      <sidebar />
     </q-drawer>
 
     <q-page-container>
@@ -101,6 +99,7 @@ import { defineComponent, ref } from 'vue';
 import { version, productName } from '../../package.json';
 import { AppFullscreen } from 'quasar';
 import Navigation from '../components/Ui/Navigation.vue';
+import Sidebar from '../components/Ui/Sidebar.vue';
 import Footer from '../components/Ui/Footer.vue';
 
 export default defineComponent({
@@ -108,6 +107,7 @@ export default defineComponent({
 
   components: {
     Navigation,
+    Sidebar,
     Footer,
   },
 

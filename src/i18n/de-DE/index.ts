@@ -7,6 +7,9 @@ export default {
   search: 'Suche',
   version: 'Version',
 
+  'uiSettings': 'Einstellungen',
+  'language': 'Sprache',
+
   'menu.applications': 'App Menü',
   'menu.fullscreen': 'Vollbild',
   'app.title.home': 'Home',

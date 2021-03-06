@@ -6,7 +6,10 @@ export default {
   success: 'Action was successful',
   search: 'Search',
   version: 'Version',
-
+  
+  'uiSettings': 'Settings',
+  'language': 'Language',
+  
   'menu.applications': 'Applications',
   'menu.fullscreen': 'Fullscreen',
   'app.title.home': 'Home',
