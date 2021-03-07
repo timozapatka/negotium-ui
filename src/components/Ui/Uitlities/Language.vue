@@ -1,5 +1,5 @@
 <template>
-  <q-item class="q-ma-sm q-pa-sm" clickable>
+  <q-item class="q-ma-none q-pa-sm" clickable>
     <q-item-section avatar>
       <q-avatar icon="language" />
     </q-item-section>
