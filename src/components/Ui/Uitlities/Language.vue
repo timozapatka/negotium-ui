@@ -1,23 +1,21 @@
 <template>
-  <div class="q-ma-none q-pa-none">
-    <q-item class="q-ma-sm q-pa-sm" clickable>
-      <q-item-section avatar>
-        <q-avatar icon="language" />
-      </q-item-section>
-      <q-item-section>
-        <q-select
-          v-model="language"
-          :options="languageOptions"
-          :label="$t('language')"
-          dense
-          borderless
-          emit-value
-          map-options
-          options-dense
-        />
-      </q-item-section>
-    </q-item>
-  </div>
+  <q-item class="q-ma-sm q-pa-sm" clickable>
+    <q-item-section avatar>
+      <q-avatar icon="language" />
+    </q-item-section>
+    <q-item-section>
+      <q-select
+        v-model="language"
+        :options="languageOptions"
+        :label="$t('language')"
+        dense
+        borderless
+        emit-value
+        map-options
+        options-dense
+      />
+    </q-item-section>
+  </q-item>
 </template>
 
 <script>
