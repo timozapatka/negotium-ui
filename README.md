@@ -3,7 +3,7 @@
 Negotium UI is a fundamental template to create a professional web applications. It is intended to create a fundation to an application environment and functionalities such as user management etc.
 
 **Demo Negotium UI**:
-[https://negotium.kdc-lab.cloud/](https://negotium.kdc-lab.cloud)
+[https://kdc-lab.github.io/negotium-ui/](https://kdc-lab.github.io/negotium-ui/)
 
 ## Support us
 
@@ -19,7 +19,7 @@ Install all dependencies
 ```zsh
 yarn global add @quasar/cli
 cd <project path>
-yarn install
+yarn
 ```
 
 # Develop with Negotium UI
@@ -46,42 +46,16 @@ The developments at IDP expect encrypted communication and our developments foll
 
 ```javascript
 devServer: {
-      https: {
-        key: fs.readFileSync('.env/server.key'),
-        cert: fs.readFileSync('.env/server.crt'),
-        ca: fs.readFileSync('.env/ca_chain.crt'),
-      },
-      allowedHosts: ['idp.kdc.zone'],
-      host: 'negotium.dev.kdc.zone',
-      port: 8443,
-      open: true, // opens browser window automatically
+    https: {
+    key: fs.readFileSync('.env/server.key'),
+    cert: fs.readFileSync('.env/server.crt'),
+    ca: fs.readFileSync('.env/ca_chain.crt'),
     },
-```
-
-## Identity management with Keycloak
-
-Negotium UI uses [Keyloack](https://www.keycloak.org/) as default as identity provider and access management. Keycloak is integrated with [keycloak.js](https://www.npmjs.com/package/keycloak-js) as an Quasar boot file.
-
-```javascript
-module.exports = function (ctx) {
-    return {
-        ...
-        build: {
-            ...
-            env: {
-                KEYCLOAK_CLIENT: ctx.dev ? '<Dev Client ID></Dev>' : '<Prod Client ID>',
-                KEYCLOAK_REALM: ctx.dev ? '<Dev Realm>' : '<Prod Realm>',
-                KEYCLOAK_HOST: 'https://<idp fqdn>',
-                KEYCLOAK_PORT: '<PORT>',
-                KEYCLOAK_ONLOAD: 'check-sso',
-                KEYCLOAK_LOGGING: ctx.dev ? true : false,
-                KEYCLOAK_CHECK_IFRAME: false,
-            },
-            ...
-        }
-        ...
-    }
-}
+    allowedHosts: ['idp.kdc.zone'],
+    host: 'negotium.dev.kdc.zone',
+    port: 8443,
+    open: true, // opens browser window automatically
+},
 ```
 
 # License
