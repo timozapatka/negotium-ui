@@ -9,7 +9,10 @@ export default {
   
   'uiSettings': 'Settings',
   'language': 'Language',
-  
+  'appearanceMode': 'Color Scheme',
+  'appearanceDarkMode': 'Dark',
+  'appearanceLightMode': 'Light',
+
   'menu.applications': 'Applications',
   'menu.fullscreen': 'Fullscreen',
   'app.title.home': 'Home',

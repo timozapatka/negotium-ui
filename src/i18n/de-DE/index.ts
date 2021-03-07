@@ -9,7 +9,9 @@ export default {
 
   'uiSettings': 'Einstellungen',
   'language': 'Sprache',
-
+  'appearanceMode': 'Farbschema',
+  'appearanceDarkMode': 'Dunkel',
+  'appearanceLightMode': 'Hell',
   'menu.applications': 'App Menü',
   'menu.fullscreen': 'Vollbild',
   'app.title.home': 'Home',

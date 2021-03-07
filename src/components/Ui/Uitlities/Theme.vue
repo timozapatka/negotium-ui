@@ -1,10 +1,20 @@
 <template>
-  <q-item class="q-ma-sm q-pa-sm" clickable>
+  <q-item tag="label" v-ripple class="q-ma-none q-pa-sm" clickable>
     <q-item-section avatar>
       <q-avatar icon="invert_colors" />
     </q-item-section>
     <q-item-section>
-      <q-toggle v-model="dark" @click="toggle()" />
+      <q-item-label captionKDCLNUI-7>{{ $t('appearanceMode') }}</q-item-label>
+      <q-item-label v-if="dark">{{ $t('appearanceDarkMode') }}</q-item-label>
+      <q-item-label v-if="!dark">{{ $t('appearanceLightMode') }}</q-item-label>
+    </q-item-section>
+    <q-item-section avatar>
+      <q-toggle
+        @click="toggle()"
+        v-model="dark"
+        checked-icon="check"
+        unchecked-icon="clear"
+      />
     </q-item-section>
   </q-item>
 </template>
