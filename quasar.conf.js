@@ -87,9 +87,9 @@ module.exports = configure(function (ctx) {
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-devServer
     devServer: {
       https: {
-        key: fs.readFileSync('.env/server.key') ,
-        cert: fs.readFileSync('.env/server.crt') ,
-        ca: fs.readFileSync('.env/ca_chain.crt') ,
+        key: ctx.dev ? fs.readFileSync('.env/server.key') :'',
+        cert: ctx.dev ? fs.readFileSync('.env/server.crt') : '' ,
+        ca: ctx.dev ? fs.readFileSync('.env/ca_chain.crt') : '' ,
       },
       allowedHosts: ['idp.kdc.zone'],
       host: 'negotium.dev.kdc.zone',
