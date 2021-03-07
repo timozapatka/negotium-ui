@@ -4,7 +4,9 @@
       <q-avatar icon="invert_colors" />
     </q-item-section>
     <q-item-section>
-      <q-item-label captionKDCLNUI-7>{{ $t('appearanceMode') }}</q-item-label>
+      <q-item-label caption
+        ><small>{{ $t('appearanceMode') }}</small></q-item-label
+      >
       <q-item-label v-if="dark">{{ $t('appearanceDarkMode') }}</q-item-label>
       <q-item-label v-if="!dark">{{ $t('appearanceLightMode') }}</q-item-label>
     </q-item-section>
@@ -27,7 +29,7 @@ export default defineComponent({
   name: 'Theme',
   setup() {
     const $q = useQuasar();
-    const dark = $q.dark.isActive;
+    let dark = $q.dark.isActive;
 
     function toggle() {
       $q.dark.toggle();

@@ -4,7 +4,11 @@
       <q-separator />
       <q-item class="q-ma-none q-pa-none" bordered>
         <q-item-section>
-          <q-expansion-item icon="settings" :label="$t('uiSettings')">
+          <q-expansion-item
+            icon="settings"
+            :label="$t('uiSettings')"
+            header-class="text-weight-bold"
+          >
             <language />
             <theme />
           </q-expansion-item>
