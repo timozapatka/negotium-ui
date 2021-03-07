@@ -80,8 +80,9 @@ module.exports = configure(function (ctx) {
       },
       env: {
         ApiBaseUrl: ctx.dev ? 'https://negotium.dev.kdc.zone:8443/api/v1' : 'https://negotium.cfapps.eu10.hana.ondemand.com/api/v1',
-      }
+      },
       
+      publicPath: ctx.dev ? '' : 'negotium-ui/'
     },
 
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-devServer
