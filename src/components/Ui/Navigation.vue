@@ -6,7 +6,7 @@
         :key="index"
         :route="route"
         clickable
-        @click="push(route)"
+        @click.self="push(route)"
       >
         <q-item-section avatar>
           <q-avatar

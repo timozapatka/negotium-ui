@@ -1,6 +1,6 @@
 <template>
   <q-layout view="lhh lpr lFf">
-    <q-header class="transparent q-ma-none q-pa-none print-hide" bordered>
+    <q-header class="transparent q-ma-none q-pa-none print-hide">
       <q-toolbar class="q-px-sm q-ma-none">
         <q-btn
           flat
@@ -88,7 +88,7 @@
       <router-view />
     </q-page-container>
 
-    <q-footer class="transparent print-hide" bordered>
+    <q-footer class="transparent print-hide">
       <Footer />
     </q-footer>
   </q-layout>
