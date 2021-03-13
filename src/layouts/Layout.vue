@@ -33,8 +33,8 @@
           flat
           dense
           round
-          v-model="fullscreen"
-          :icon="$q.fullscreen.isActive ? 'fullscreen_exit' : 'fullscreen'"
+          v-model="fullscreen.isActive"
+          :icon="fullscreen.isActive ? 'fullscreen_exit' : 'fullscreen'"
           :aria-label="$t('menu.fullscreen')"
           @click="toggleFullscreen()"
           class="print-hide"
@@ -97,7 +97,7 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import { version, productName } from '../../package.json';
-import { AppFullscreen } from 'quasar';
+import { useQuasar, AppFullscreen } from 'quasar';
 import Navigation from '../components/Ui/Navigation.vue';
 import Sidebar from '../components/Ui/Sidebar.vue';
 import Footer from '../components/Ui/Footer.vue';
@@ -115,10 +115,13 @@ export default defineComponent({
     const menu = ref(true);
     const mini = ref(true);
     const sidebar = ref(false);
+    const $q = useQuasar();
     const fullscreen = AppFullscreen;
 
     function toggleFullscreen() {
-      void fullscreen.toggle();
+      fullscreen.toggle().catch(function (error) {
+        $q.notify(error);
+      });
     }
 
     return {
@@ -127,7 +130,7 @@ export default defineComponent({
       mini,
       menu,
       sidebar,
-      fullscreen: AppFullscreen.isActive,
+      fullscreen,
       toggleFullscreen,
     };
   },
