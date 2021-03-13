@@ -5,13 +5,15 @@
         v-for="(route, index) in routes"
         :key="index"
         :route="route"
+        :class="isRouteId === route.name ? 'bg-primary' : ''"
         clickable
         @click.self="push(route)"
+        bordered
       >
         <q-item-section avatar>
           <q-avatar
             :icon="route?.meta?.icon"
-            :text-color="isRouteId === route.name ? 'primary' : 'white'"
+            :text-color="isRouteId === route.name ? 'white' : ''"
           >
             <q-tooltip :offset="[0, 0]">
               {{ $t(route?.meta?.title) }}
@@ -19,11 +21,13 @@
           </q-avatar>
         </q-item-section>
         <q-item-section>
-          <q-item-label>{{ $t(route?.meta?.title) }}</q-item-label>
+          <q-item-label class="text-white">
+            <strong>{{ $t(route?.meta?.title) }}</strong>
+          </q-item-label>
           <q-item-label
             v-if="route?.meta?.description"
             caption
-            class="text-grey"
+            class="text-white"
           >
             {{ $t(route?.meta?.description) }}
           </q-item-label>
