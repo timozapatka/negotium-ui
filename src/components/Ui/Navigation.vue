@@ -5,15 +5,14 @@
         v-for="(route, index) in routes"
         :key="index"
         :route="route"
-        :class="isRouteId === route.name ? 'bg-primary' : ''"
+        :class="activeRoute.name === route.name ? 'bg-primary' : ''"
         clickable
-        @click.self="push(route)"
-        bordered
+        @click="pushRoute(route)"
       >
         <q-item-section avatar>
           <q-avatar
             :icon="route?.meta?.icon"
-            :text-color="isRouteId === route.name ? 'white' : ''"
+            :text-color="activeRoute.name === route.name ? 'white' : ''"
           >
             <q-tooltip :offset="[0, 0]">
               {{ $t(route?.meta?.title) }}
@@ -54,6 +53,7 @@
 
 <script>
 import { defineComponent } from 'vue';
+import { useQuasar } from 'quasar';
 import { useRouter, useRoute } from 'vue-router';
 
 export default defineComponent({
@@ -67,20 +67,24 @@ export default defineComponent({
   },
 
   setup(props) {
+    const $q = useQuasar();
     const router = useRouter();
-    const route = useRoute();
+    const activeRoute = useRoute();
     const routes = router.getRoutes().filter(function (element) {
       return element?.meta?.type === props.type;
     });
 
-    function push(child) {
-      void router.push(child);
+    function pushRoute(child) {
+      console.log('child:', child);
+      router.push(child).catch(function (error) {
+        $q.notify(error);
+      });
     }
 
     return {
-      isRouteId: route.name,
       routes,
-      push,
+      activeRoute,
+      pushRoute,
     };
   },
 });
