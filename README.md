@@ -1,5 +1,7 @@
 # Negotium UI (App fundation template)
 
+[![Alarmhinweise](https://sonar.kdc-lab.io/api/project_badges/measure?project=com.lab.kdc.vue.negotium-ui&metric=alert_status)](https://sonar.kdc-lab.io/dashboard?id=com.lab.kdc.vue.negotium-ui) [![Security Rating](https://sonar.kdc-lab.io/api/project_badges/measure?project=com.lab.kdc.vue.negotium-ui&metric=security_rating)](https://sonar.kdc-lab.io/dashboard?id=com.lab.kdc.vue.negotium-ui) [![Vulnerabilities](https://sonar.kdc-lab.io/api/project_badges/measure?project=com.lab.kdc.vue.negotium-ui&metric=vulnerabilities)](https://sonar.kdc-lab.io/dashboard?id=com.lab.kdc.vue.negotium-ui) [![Bugs](https://sonar.kdc-lab.io/api/project_badges/measure?project=com.lab.kdc.vue.negotium-ui&metric=bugs)](https://sonar.kdc-lab.io/dashboard?id=com.lab.kdc.vue.negotium-ui)
+
 Negotium UI is a fundamental template to create a professional web applications. It is intended to create a fundation to an application environment and functionalities such as user management etc.
 
 **Demo Negotium UI**:
@@ -18,7 +20,8 @@ Install all dependencies
 
 ```zsh
 yarn global add @quasar/cli
-cd <project path>
+git clone https://github.com/kdc-lab/negotium-ui.git
+cd negotium-ui
 yarn
 ```
 
