@@ -30,6 +30,7 @@
         <q-space />
 
         <q-btn
+          v-if="fullscreen.isCapable"
           flat
           dense
           round
