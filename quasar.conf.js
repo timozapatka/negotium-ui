@@ -81,7 +81,7 @@ module.exports = configure(function (ctx) {
       env: {
         ApiBaseUrl: ctx.dev ? 'https://negotium.dev.kdc.zone:8443/api/v1' : 'https://negotium.cfapps.eu10.hana.ondemand.com/api/v1',
       },
-      
+
       publicPath: ctx.dev ? '' : 'negotium-ui/'
     },
 
@@ -220,14 +220,12 @@ module.exports = configure(function (ctx) {
         // do something with the Electron main process Webpack cfg
         // extendWebpackMain also available besides this chainWebpackMain
       },
-      
 
       // "chain" is a webpack-chain object https://github.com/neutrinojs/webpack-chain
       chainWebpackPreload (/* chain */) {
         // do something with the Electron main process Webpack cfg
         // extendWebpackPreload also available besides this chainWebpackPreload
       },
-      
     }
   }
 });
