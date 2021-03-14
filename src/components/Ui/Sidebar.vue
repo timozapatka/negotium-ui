@@ -1,20 +1,19 @@
 <template>
   <div class="q-ma-none q-pa-none">
-    <q-list separator>
-      <q-separator />
-      <q-item class="q-ma-none q-pa-none" bordered>
+    <q-list>
+      <q-item class="q-ma-none q-pa-none">
         <q-item-section>
           <q-expansion-item
             icon="settings"
             :label="$t('uiSettings')"
             header-class="text-weight-bold"
+            expand-separator
           >
             <language />
             <theme />
           </q-expansion-item>
         </q-item-section>
       </q-item>
-      <q-separator />
     </q-list>
   </div>
 </template>

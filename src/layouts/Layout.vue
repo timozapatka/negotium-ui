@@ -53,17 +53,15 @@
     </q-header>
 
     <q-drawer v-model="menu" :mini="mini" elevated dark class="print-hide">
-      <q-list class="menu-list" elevated>
-        <q-item clickable class="gt-sm" @click="mini = !mini">
-          <q-item-section
-            avatar
-            :class="mini ? 'absolute-center' : 'absolute-right'"
-          >
-            <q-icon v-if="mini" name="menu" />
-            <q-icon v-if="!mini" name="clear" />
-          </q-item-section>
-        </q-item>
-      </q-list>
+      <q-item clickable @click="mini = !mini" class="q-ma-none q-pa-none">
+        <q-item-section
+          avatar
+          :class="mini ? 'absolute-center' : 'absolute-right'"
+        >
+          <q-icon v-if="mini" name="menu" />
+          <q-icon v-if="!mini" name="clear" />
+        </q-item-section>
+      </q-item>
 
       <navigation type="application" />
 
@@ -79,10 +77,10 @@
       v-model="sidebar"
       :width="300"
       side="right"
-      overlay
       class="print-hide"
+      overlay
     >
-      <sidebar />
+      <sidebar bordered />
     </q-drawer>
 
     <q-page-container>

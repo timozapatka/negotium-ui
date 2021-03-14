@@ -110,10 +110,10 @@ module.exports = configure(function (ctx) {
         notify:{
           position: 'top-right',
           timeout: 2500,
-          color: 'primary',
+          color: 'red',
           progress: true,
           actions: [{ icon: 'close' }],
-          icon: 'info'
+          icon: 'error',
         }
       },
 
@@ -128,7 +128,7 @@ module.exports = configure(function (ctx) {
       // directives: [],
 
       // Quasar plugins
-      plugins: ['Notify', 'LoadingBar', 'AppFullscreen', 'SessionStorage']
+      plugins: ['Notify', 'LoadingBar', 'AppFullscreen']
     },
 
     // animations: 'all', // --- includes all animations
