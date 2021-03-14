@@ -36,7 +36,7 @@
   </div>
 
   <div v-if="type === 'footer'">
-    <ul class="row q-ma-none q-pa-none justify-center">
+    <ul class="row q-ma-sm q-pa-none justify-center">
       <li
         v-for="(route, index) in routes"
         :key="index"
