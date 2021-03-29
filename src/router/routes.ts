@@ -13,9 +13,9 @@ const routes: RouteRecordRaw[] = [
     path: '/legal/',
     component: () => import('layouts/Layout.vue'),
     children: [
-      { name: 'impress', path: '/legal/impress/', component: () => import('pages/Static.vue'), meta: { type: 'footer', title: 'footer.impress', public: true } },
-      { name: 'privacy', path: '/legal/privacy/', component: () => import('pages/Static.vue'), meta: { type: 'footer', title: 'footer.privacy', public: true } },
-      { name: 'terms', path: '/legal/terms/', component: () => import('pages/Static.vue'), meta: { type: 'footer', title: 'footer.usage' } },
+      { name: 'impress', path: '/legal/impress/', component: () => import('pages/Index.vue'), meta: { type: 'footer', title: 'footer.impress', public: true } },
+      { name: 'privacy', path: '/legal/privacy/', component: () => import('pages/Index.vue'), meta: { type: 'footer', title: 'footer.privacy', public: true } },
+      { name: 'terms', path: '/legal/terms/', component: () => import('pages/Index.vue'), meta: { type: 'footer', title: 'footer.usage' } },
 
     ]
   },

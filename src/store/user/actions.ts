@@ -4,16 +4,8 @@ import { UserInterface } from './state';
 import { Notify } from 'quasar';
 
 const actions: ActionTree<UserInterface, StateInterface> = {
-    setProvider({ state, commit, dispatch }, keycloak:Keycloak.KeycloakInstance) {
+    setProvider({commit}, keycloak:Keycloak.KeycloakInstance) {
         commit('setKeycloak', keycloak)
-        if (state.authenticated){
-            dispatch('loadProfile').catch(function (error:Error){
-                Notify.create({
-                    type: 'error',
-                    message: error.message
-                });
-            });
-        }
     },
 
     loadProfile({ state, commit }) {

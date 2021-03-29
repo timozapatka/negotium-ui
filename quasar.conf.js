@@ -81,6 +81,9 @@ module.exports = configure(function (ctx) {
       },
       env: {
         ApiBaseUrl: ctx.dev ? 'https://negotium.dev.kdc.zone:8443/api/v1' : 'https://negotium.cfapps.eu10.hana.ondemand.com/api/v1',
+        KEYCLOAK_IDP_URL: 'https://idp.kdc.zone/auth',
+        KEYCLOAK_IDP_REALM: ctx.dev ? 'io.kdc-lab.negotium':'cloud.kdc-lab.negotium',
+        KEYCLOAK_IDP_CLIENT:  ctx.dev ? 'io.kdc-lab.app.negotium':'cloud.kdc-lab.app.negotium',
       },
 
       publicPath: ctx.dev ? '' : 'negotium-ui/'
