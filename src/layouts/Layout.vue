@@ -28,7 +28,7 @@
         </q-toolbar-title>
 
         <q-space />
-
+        <User scope="top" />
         <q-btn
           v-if="fullscreen.isCapable"
           flat
@@ -98,6 +98,7 @@ import { defineComponent, ref } from 'vue';
 import { version, productName } from '../../package.json';
 import { useQuasar, AppFullscreen } from 'quasar';
 import Navigation from '../components/Ui/Navigation.vue';
+import User from '../components/Ui/Uitlities/User.vue';
 import Sidebar from '../components/Ui/Sidebar.vue';
 import Footer from '../components/Ui/Footer.vue';
 
@@ -108,6 +109,7 @@ export default defineComponent({
     Navigation,
     Sidebar,
     Footer,
+    User,
   },
 
   setup() {
@@ -118,8 +120,11 @@ export default defineComponent({
     const fullscreen = AppFullscreen;
 
     function toggleFullscreen() {
-      fullscreen.toggle().catch(function (error) {
-        $q.notify(error);
+      fullscreen.toggle().catch(function (error: Error) {
+        $q.notify({
+          type: 'error',
+          message: error.message,
+        });
       });
     }
 

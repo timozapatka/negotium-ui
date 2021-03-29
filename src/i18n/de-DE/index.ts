@@ -6,7 +6,9 @@ export default {
   success: 'Aktion erfolgreich',
   search: 'Suche',
   version: 'Version',
-
+  'welcome':'Willkommen',
+  'SignIn': 'anmelden',
+  'SignOut': 'abmelden',
   'uiSettings': 'Einstellungen',
   'language': 'Sprache',
   'appearanceMode': 'Farbschema',

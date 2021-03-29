@@ -6,6 +6,8 @@ import { createStore } from 'vuex';
  */
 import Ui from './ui';
 import { UiInterface } from './ui/state';
+import User from './user'
+import { UserInterface } from './user/state';
 
 // import example from './module-example'
 // import { ExampleStateInterface } from './module-example/state';
@@ -24,12 +26,14 @@ export interface StateInterface {
   // example: ExampleStateInterface;
   // Declared as unknown to avoid linting issue. Best to strongly type as per the line above.
   Ui: UiInterface;
+  User: UserInterface;
 }
 
 export default store(function (/* { ssrContext } */) {
   const Store = createStore<StateInterface>({
     modules: {
-      Ui
+      Ui,
+      User
     },
 
     // enable strict mode (adds overhead!)

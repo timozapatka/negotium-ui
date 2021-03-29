@@ -7,6 +7,9 @@ export default {
   search: 'Search',
   version: 'Version',
   
+  'welcome':'Welcome',
+  'SignIn': 'sign in',
+  'SignOut': 'sign out',
   'uiSettings': 'Settings',
   'language': 'Language',
   'appearanceMode': 'Color Scheme',
