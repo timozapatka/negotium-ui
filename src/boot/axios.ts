@@ -16,11 +16,11 @@ export default boot(({ app }) => {
   axios.interceptors.request.use((config) => {
     LoadingBar.start()
     return config
-  }, (error) => {
+  }, (error:Error) => {
     LoadingBar.stop()
     Notify.create({
       type: 'error',
-      message: error as string
+      message: error.message
     })
     return Promise.reject(error)
   });
@@ -28,11 +28,11 @@ export default boot(({ app }) => {
   axios.interceptors.response.use((response) => {
         LoadingBar.start()
         return response
-    }, (error) => {
+    }, (error: Error) => {
         LoadingBar.stop()
         Notify.create({
           type: 'error',
-          message: error as string
+          message: error.message
         })
         return Promise.reject(error)
     })

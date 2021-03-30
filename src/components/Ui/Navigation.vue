@@ -6,8 +6,7 @@
         :key="index"
         :route="route"
         :class="activeRoute.name === route.name ? 'bg-active' : ''"
-        clickable
-        @click="pushRoute(route)"
+        :to="{ name: route.name }"
       >
         <q-item-section avatar>
           <q-avatar
@@ -15,20 +14,20 @@
             :text-color="activeRoute.name === route.name ? 'white' : ''"
           >
             <q-tooltip :offset="[0, 0]">
-              {{ $t(route?.meta?.title) }}
+              {{ $t(route.meta.title || '') }}
             </q-tooltip>
           </q-avatar>
         </q-item-section>
         <q-item-section>
           <q-item-label class="text-white">
-            <strong>{{ $t(route?.meta?.title) }}</strong>
+            <strong>{{ $t(route.meta.title || '') }}</strong>
           </q-item-label>
           <q-item-label
             v-if="route?.meta?.description"
             caption
             class="text-white"
           >
-            {{ $t(route?.meta?.description) }}
+            {{ $t(route.meta.description || '') }}
           </q-item-label>
         </q-item-section>
       </q-item>
@@ -56,9 +55,8 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent } from 'vue';
-import { useQuasar, Screen } from 'quasar';
 import { useRouter, useRoute } from 'vue-router';
 
 export default defineComponent({
@@ -72,24 +70,15 @@ export default defineComponent({
   },
 
   setup(props) {
-    const $q = useQuasar();
     const router = useRouter();
     const activeRoute = useRoute();
     const routes = router.getRoutes().filter(function (element) {
       return element?.meta?.type === props.type;
     });
 
-    function pushRoute(child) {
-      console.log('child:', child);
-      router.push(child).catch(function (error) {
-        $q.notify(error);
-      });
-    }
-
     return {
       routes,
       activeRoute,
-      pushRoute,
       Screen,
     };
   },

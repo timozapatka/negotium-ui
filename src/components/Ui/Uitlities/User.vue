@@ -5,16 +5,6 @@
     clickable
     @click="authentification()"
   >
-    <q-item-section class="q-ma-none q-pa-none">
-      <q-item-label class="text-primary">
-        <div v-if="!authenticated">{{ $t('Welcome') }}</div>
-        <div v-if="authenticated">{{ fullname }}</div>
-      </q-item-label>
-      <q-item-label caption>
-        <div v-if="!authenticated">{{ $t('SignIn') }}</div>
-        <div v-if="authenticated">{{ $t('SignOut') }}</div>
-      </q-item-label>
-    </q-item-section>
     <q-item-section side>
       <q-icon
         name="account_box"
@@ -22,6 +12,16 @@
         color="primary"
         class="q-ma-none q-pa-none"
       />
+    </q-item-section>
+    <q-item-section class="q-ma-none q-pa-none">
+      <q-item-label side class="text-primary">
+        <div v-if="!authenticated">{{ $t('Welcome') }}</div>
+        <div v-if="authenticated">{{ fullname }}</div>
+      </q-item-label>
+      <q-item-label caption>
+        <div v-if="!authenticated">{{ $t('SignIn') }}</div>
+        <div v-if="authenticated">{{ $t('SignOut') }}</div>
+      </q-item-label>
     </q-item-section>
   </q-item>
 
