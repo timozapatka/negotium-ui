@@ -18,7 +18,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent } from 'vue';
 import Language from './Uitlities/Language.vue';
 import Theme from './Uitlities/Theme.vue';

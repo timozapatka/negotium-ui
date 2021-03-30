@@ -21,7 +21,7 @@
   </q-item>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent } from 'vue';
 import { useQuasar } from 'quasar';
 
