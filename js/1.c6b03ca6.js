@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([[1],{"8b24":function(e,n,t){"use strict";t.r(n);var c=t("7a23");function s(e,n){const t=Object(c["H"])("q-page");return Object(c["A"])(),Object(c["h"])(t,{class:"row items-center justify-evenly"})}var o=t("9989"),a=t("eebe"),r=t.n(a);const b={};b.render=s;n["default"]=b;r()(b,"components",{QPage:o["a"]})}}]);
